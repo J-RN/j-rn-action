@@ -1,15 +1,19 @@
 .PHONY: build push
 default: check build
+PYTHON=python
+PIP=$(PYTHON) -m pip
+FLAKE8=$(PYTHON) -m flake8
+NBSTRIPOUT=$(PYTHON) -m nbstripout --keep-count --keep-output
 requirements-%:
-	echo pip install -r "${GITHUB_ACTION_PATH}/${@}.txt"
+	$(PIP) install -r "${GITHUB_ACTION_PATH}/${@}.txt"
 
 check:
 	@$(MAKE) requirements-$@
-	if [ ${IGNORE_ERRORS} ]; then flake8 --exit-zero; else flake8; fi
+	if [ -n "${IGNORE_ERRORS}" ]; then $(FLAKE8) --exit-zero; else $(FLAKE8); fi
 
 build:
 	@$(MAKE) requirements-$@
-	git ls-files '*.ipynb' | xargs | nbstripout --keep-count --keep-output
+	git ls-files '*.ipynb' | xargs | $(NBSTRIPOUT)
 
 push:
 	@$(MAKE) requirements-$@
