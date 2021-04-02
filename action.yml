@@ -1,0 +1,26 @@
+name: j-rn
+inputs:
+  github-token:
+    description: Token with write access to this repo
+    required: true
+  task:
+    description: Task(s) to perform
+    required: false
+    default: check build
+  ignore-errors:
+    description: Convert errors to warnings
+    required: false
+    default: ''
+runs:
+  using: composite
+  steps:
+    - name: make
+      run: make -f "${{ github.action_path }}/Makefile" ${TASKS//,/ }
+      shell: bash
+      env:
+        GITHUB_TOKEN: ${{ inputs.github-token }}
+        TASKS: ${{ inputs.task }}
+        IGNORE_ERRORS: ${{ inputs.ignore-errors }}
+branding:
+  icon: book-open
+  color: orange
