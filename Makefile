@@ -1,4 +1,4 @@
-.PHONY: build push
+.PHONY: check build deploy comment
 default: check build
 PYTHON=python
 PIP=$(PYTHON) -m pip
@@ -15,5 +15,8 @@ build:
 	@$(MAKE) requirements-$@
 	git ls-files '*.ipynb' | xargs | $(NBSTRIPOUT)
 
-push:
+deploy:
+	@$(MAKE) requirements-$@
+
+comment:
 	@$(MAKE) requirements-$@
