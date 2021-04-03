@@ -15,6 +15,10 @@ inputs:
     description: Convert errors to warnings
     required: false
     default: ''
+  python:
+    description: Python executable
+    required: false
+    default: python
 runs:
   using: composite
   steps:
@@ -30,13 +34,16 @@ runs:
       elif [[ $GITHUB_EVENT_NAME == *_comment ]]; then
         export TASK="${TASK//auto/comment}"
       fi
-      make -f "${{ github.action_path }}/Makefile" $TASK
+      make -f "${{ github.action_path }}/action.Makefile" $TASK
     shell: bash
     env:
       GITHUB_TOKEN: ${{ inputs.github-token }}
       TASK: ${{ inputs.task }}
       IGNORE_ERRORS: ${{ inputs.ignore-errors }}
       DEPLOY_BRANCH: ${{ inputs.deploy-branch }}
+      PYTHON: ${{ inputs.python }}
+      GIT_AUTHOR_NAME: J-RN[bot]
+      GIT_AUTHOR_EMAIL: 80856664+j-rn-bot@users.noreply.github.com
 branding:
   icon: book-open
   color: orange

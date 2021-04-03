@@ -23,3 +23,10 @@ repos:
     types: [text]
     exclude: ^(.pre-commit-config.yaml|.github/workflows/test.yml)$
     args: [-i]
+  - id: shfmt
+    name: shfmt
+    language: golang
+    entry: shfmt
+    args: ['-l', '-d', '-i', '2', '-ci', '-w']
+    types: [shell]
+    additional_dependencies: [mvdan.cc/sh/v3/cmd/shfmt@v3.2.1]
