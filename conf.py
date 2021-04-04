@@ -4,11 +4,15 @@
 # -- Path setup --------------------------------------------------------------
 import os
 import sys
+
 sys.path.insert(0, os.path.abspath('.'))
 
 # -- Project information -----------------------------------------------------
+from meta import release, version # NOQA: E402, F401; isort:skip
+from meta import (                # NOQA: E402; isort: skip
+    authors, copyright_code, copyright_text, description, title, year)
+
 project = "The J-RN"
-from meta import authors, copyright_code, copyright_text, description, release, title, version, year
 
 _auths = ["{lastname}, {forenames}".format(**i) for i in authors]
 _auths_links = [
@@ -16,7 +20,11 @@ _auths_links = [
     for i, j in zip(authors, _auths)]
 author = _auths_links[0] if len(
     _auths_links) < 2 else f'{"; ".join(_auths_links[:-1])}, and {_auths_links[-1]}'
-copyright = f'{year} <a href="https://spdx.org/licenses/{copyright_text}.html">{copyright_text}</a> (text) <a href="https://spdx.org/licenses/{copyright_code}.html">{copyright_code}</a> (code) {author}'
+copyright = (
+    f'{year}'
+    f' <a href="https://spdx.org/licenses/{copyright_text}.html">{copyright_text}</a> (text)'
+    f' <a href="https://spdx.org/licenses/{copyright_code}.html">{copyright_code}</a> (code)'
+    f' {author}')
 
 # -- General configuration ---------------------------------------------------
 extensions = ['nbsphinx', 'sphinx.ext.mathjax', 'sphinx.ext.githubpages', 'sphinxcontrib.bibtex']
@@ -36,9 +44,8 @@ pygments_style = None
 html_theme = 'alabaster'
 html_theme_options = {
     'github_user': os.getenv('GITHUB_REPOSITORY').split("/", 1)[0],
-    'github_repo': os.getenv('GITHUB_REPOSITORY').split("/", 1)[1],
-    'description': description,
-}
+    'github_repo': os.getenv('GITHUB_REPOSITORY').split("/", 1)[1], 'description': description,
+    'analytics_id': "UA-56320088-8", 'logo': "logo.svg", 'logo_name': True}
 html_static_path = ['_static']
 
 # -- Options for HTMLHelp output ---------------------------------------------
@@ -46,10 +53,7 @@ html_static_path = ['_static']
 htmlhelp_basename = 'pagesdoc'
 
 # -- Options for LaTeX output ------------------------------------------------
-latex_elements = {
-    'papersize': 'a4paper',
-    'pointsize': '10pt',
-    'figure_align': 'htbp'}
+latex_elements = {'papersize': 'a4paper', 'pointsize': '10pt', 'figure_align': 'htbp'}
 
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title,
@@ -65,4 +69,5 @@ man_pages = [(master_doc, title, title, [author], 1)]
 # Grouping the document tree into Texinfo files. List of tuples
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
-texinfo_documents = [(master_doc, title, title, " and ".join(_auths), title, description, 'Miscellaneous'),]
+texinfo_documents = [
+    (master_doc, title, title, " and ".join(_auths), title, description, 'Miscellaneous')]

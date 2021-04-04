@@ -30,3 +30,21 @@ repos:
     args: ['-l', '-d', '-i', '2', '-ci', '-w']
     types: [shell]
     additional_dependencies: [mvdan.cc/sh/v3/cmd/shfmt@v3.2.1]
+- repo: https://gitlab.com/pycqa/flake8
+  rev: 3.9.0
+  hooks:
+  - id: flake8
+    additional_dependencies:
+    - flake8-bugbear
+    - flake8-comprehensions
+    - flake8-debugger
+    - flake8-string-format
+- repo: https://github.com/google/yapf
+  rev: v0.31.0
+  hooks:
+  - id: yapf
+    args: [-i]
+- repo: https://github.com/PyCQA/isort
+  rev: 5.8.0
+  hooks:
+  - id: isort
