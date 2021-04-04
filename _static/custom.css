@@ -21,10 +21,22 @@
   /* top centre */
   position: absolute;
   z-index: 1;
-  bottom: 100%;
   width: 120px;
-  margin-left: -60px;
+  top: -1px;
+  left: 105%;
 }
 .prompt:hover .highlight .tooltip-text {
   visibility: visible;
+}
+
+img.badge {
+  width: 14px;
+  height: 14px;
+}
+div.sphinxsidebar h3 {
+  font-size: 16px;
+  line-height: 0;
+  font-weight: bold;
+  font-style: italic;
+  padding-top: 12px;
 }

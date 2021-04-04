@@ -10,7 +10,15 @@ sys.path.insert(0, os.path.abspath('.'))
 # -- Project information -----------------------------------------------------
 from meta import release, version # NOQA: E402, F401; isort:skip
 from meta import (                # NOQA: E402; isort: skip
-    authors, copyright_code, copyright_text, description, title, year)
+    authors, copyright_code, copyright_text, description, keywords, title, year)
+try:
+    from meta import editors
+except ImportError:
+    editors = []
+try:
+    from meta import doi
+except ImportError:
+    doi = ''
 
 project = "The J-RN"
 
@@ -46,12 +54,20 @@ pygments_style = None
 # -- Options for HTML output -------------------------------------------------
 html_theme = 'alabaster'
 html_theme_options = {
-    'github_user': os.getenv('GITHUB_REPOSITORY').split("/", 1)[0],
-    'github_repo': os.getenv('GITHUB_REPOSITORY').split("/", 1)[1], 'github_type': 'star',
-    'description': description, 'analytics_id': "UA-56320088-8", 'logo': "logo.svg",
-    'logo_name': True, 'show_powered_by': False, 'page_width': "1024px"}
+    'analytics_id': "UA-56320088-8", 'show_powered_by': False, 'page_width': "1024px",
+    'fixed_sidebar': True, 'logo': "logo.svg"}
+html_context = {
+    'title': title, 'description': description, 'authors': authors,
+    'copyright_code': copyright_code, 'copyright_text': copyright_text, 'year': year,
+    'github_repository': os.getenv('GITHUB_REPOSITORY')}
+if keywords:
+    html_context['keywords'] = keywords
+if editors:
+    html_context['editors'] = editors
+if doi:
+    html_context['doi'] = doi
 html_static_path = ['_static']
-html_sidebars = {"**": ["about.html", "localtoc.html", "versioning.html"]}
+html_sidebars = {"**": ["about.html", "meta.html", "localtoc.html", "versioning.html"]}
 html_js_files = ['custom.js']
 
 # -- Options for HTMLHelp output ---------------------------------------------

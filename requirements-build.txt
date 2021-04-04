@@ -1,6 +1,6 @@
 nbsphinx
 nbstripout
 sphinx
-sphinxcontrib-bibtex
+sphinxcontrib-bibtex>=2
 sphinx-copybutton
 git+https://github.com/J-RN/sphinx-multiversion.git#egg=sphinx-multiversion

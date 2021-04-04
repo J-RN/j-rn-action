@@ -1,0 +1,54 @@
+<a href="/"><h1 class="logo">{{ project }}</h1></a>
+
+<a href="."><h2>{{ title }}</h2></a>
+<p class="blurb">{{ description }}</p>
+
+{% if doi %}
+<a href="https://dx.doi.org/{{ doi }}"><img src="https://img.shields.io/badge/DOI-{{ doi }}-eeeeee" /></a>
+{% endif %}
+{% if current_version %}
+<a href="https://colab.research.google.com/github/{{ github_repository }}/blob/{{ current_version.name }}/index.ipynb"><img src="https://img.shields.io/badge/launch-colab-ffaaaa?logo=Google%20Colab" /></a>
+<a href="https://mybinder.org/v2/gh/{{ github_repository }}/{{ current_version.name }}?filepath=index.ipynb"><img src="https://static.mybinder.org/badge_logo.svg?labelColor=aaffaa&color=ffaaaa" /></a>
+{% endif %}
+<a href="https://github.com/{{ github_repository }}"><img src="https://img.shields.io/badge/view-source-black?logo=GitHub" /></a>
+
+{% if keywords %}
+<p>Tags: {%- for keyword in keywords %}
+<span class="tag">{{ keyword }}</span>
+{%- endfor %}</p>
+{% endif %}
+
+<h3>Authors</h3>
+&copy; {{ year }}
+<ul>
+{%- for author in authors %}
+  <li>
+    {{ author.lastname }}, {{ author.forenames }}
+    {%- if author.orcid %}
+    <a href="https://orcid.org/{{ author.orcid }}"><img src="https://unpkg.com/simple-icons@v4/icons/orcid.svg" class="badge"/></a>
+    {%- endif %}
+    {%- if author.github %}
+    <a href="https://github.com/{{ author.github }}"><img src="https://unpkg.com/simple-icons@v4/icons/github.svg" class="badge"/></a>
+    {%- endif %}
+  </li>
+{%- endfor %}
+</ul>
+<a href="https://spdx.org/licenses/{{ copyright_text }}.html"><img src="https://img.shields.io/badge/text-{{ copyright_text | replace('-', '--') }}-eeeeee?labelColor=aaffaa" /></a>
+<a href="https://spdx.org/licenses/{{ copyright_code }}.html"><img src="https://img.shields.io/badge/code-{{ copyright_code | replace('-', '--') }}-eeeeee?labelColor=aaaaff" /></a>
+
+{% if editors %}
+<h3>Editors</h3>
+<ul>
+{%- for author in editors %}
+  <li>
+    {{ author.lastname }}, {{ author.forenames }}
+    {%- if author.orcid %}
+    <a href="https://orcid.org/{{ author.orcid }}"><img src="https://unpkg.com/simple-icons@v4/icons/orcid.svg" class="badge"/></a>
+    {%- endif %}
+    {%- if author.github %}
+    <a href="https://github.com/{{ author.github }}"><img src="https://unpkg.com/simple-icons@v4/icons/github.svg" class="badge"/></a>
+    {%- endif %}
+  </li>
+{%- endfor %}
+</ul>
+{% endif %}
