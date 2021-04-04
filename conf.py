@@ -52,6 +52,7 @@ html_theme_options = {
     'logo_name': True, 'show_powered_by': False, 'page_width': "1024px"}
 html_static_path = ['_static']
 html_sidebars = {"**": ["about.html", "localtoc.html", "versioning.html"]}
+html_js_files = ['custom.js']
 
 # -- Options for HTMLHelp output ---------------------------------------------
 # Output file base name for HTML help builder.

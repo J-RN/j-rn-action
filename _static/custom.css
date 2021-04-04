@@ -1,3 +1,7 @@
+.input_area {
+  display: block;
+  overflow: hidden;
+}
 .version-banner {
   background-color: #ffffaa;
 }
