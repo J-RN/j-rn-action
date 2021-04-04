@@ -40,3 +40,20 @@ div.sphinxsidebar h3 {
   font-style: italic;
   padding-top: 12px;
 }
+
+.logo {
+  border-bottom: 0 !important;
+  text-align: center;
+  line-height: 1;
+}
+.logo img {
+  width: 100px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media screen and (max-width: 875px) {
+  div.sphinxsidebar {
+      background: #555;
+  }
+}

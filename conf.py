@@ -56,6 +56,7 @@ html_theme = 'alabaster'
 html_theme_options = {
     'analytics_id': "UA-56320088-8", 'show_powered_by': False, 'page_width': "1024px",
     'fixed_sidebar': True, 'logo': "logo.svg"}
+html_favicon = '_static/favicon.svg'
 html_context = {
     'title': title, 'description': description, 'authors': authors,
     'copyright_code': copyright_code, 'copyright_text': copyright_text, 'year': year,
@@ -67,7 +68,7 @@ if editors:
 if doi:
     html_context['doi'] = doi
 html_static_path = ['_static']
-html_sidebars = {"**": ["about.html", "meta.html", "localtoc.html", "versioning.html"]}
+html_sidebars = {"**": ["meta.html", "localtoc.html", "versioning.html"]}
 html_js_files = ['custom.js']
 
 # -- Options for HTMLHelp output ---------------------------------------------
