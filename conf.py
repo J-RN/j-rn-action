@@ -44,9 +44,11 @@ pygments_style = None
 html_theme = 'alabaster'
 html_theme_options = {
     'github_user': os.getenv('GITHUB_REPOSITORY').split("/", 1)[0],
-    'github_repo': os.getenv('GITHUB_REPOSITORY').split("/", 1)[1], 'description': description,
-    'analytics_id': "UA-56320088-8", 'logo': "logo.svg", 'logo_name': True}
+    'github_repo': os.getenv('GITHUB_REPOSITORY').split("/", 1)[1], 'github_type': 'star',
+    'description': description, 'analytics_id': "UA-56320088-8", 'logo': "logo.svg",
+    'logo_name': True, 'show_powered_by': False, 'page_width': "1024px"}
 html_static_path = ['_static']
+html_sidebars = {"**": ["about.html"]}
 
 # -- Options for HTMLHelp output ---------------------------------------------
 # Output file base name for HTML help builder.
