@@ -16,13 +16,15 @@ popd
 # build static site
 cp -R "${GITHUB_ACTION_PATH}"/_static/ . || :
 cp "${GITHUB_ACTION_PATH}"/conf.py . || :
-cp "${GITHUB_ACTION_PATH}"/Makefile . || :
-cp "${GITHUB_ACTION_PATH}"/logo.svg _static/ || :
-make html
+# cp "${GITHUB_ACTION_PATH}"/Makefile . || :
+# make html
+# sphinx-build . _build/html
+sphinx-multiversion . _build/html
 
 # update local branch
 pushd _build/html
+sed "s/{{ latest }}/$(git -C ../.. branch --show-current)/" "${GITHUB_ACTION_PATH}"/_templates/redirect.html >index.html
 git add --all
-git commit -m "update static site" || :
+git commit -m "update static site" --author='J-RN[bot] <80856664+j-rn-bot@users.noreply.github.com>' || :
 git push -u local_repo "${DEPLOY_BRANCH}":"${DEPLOY_BRANCH}"
 popd

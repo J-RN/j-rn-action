@@ -29,7 +29,7 @@ copyright = (
 # -- General configuration ---------------------------------------------------
 extensions = [
     'nbsphinx', 'sphinx.ext.mathjax', 'sphinx.ext.githubpages', 'sphinxcontrib.bibtex',
-    'sphinx_copybutton']
+    'sphinx_copybutton', 'sphinx_multiversion']
 templates_path = ['_templates']
 source_suffix = '.ipynb'
 html_sourcelink_suffix = ''
@@ -51,7 +51,7 @@ html_theme_options = {
     'description': description, 'analytics_id': "UA-56320088-8", 'logo': "logo.svg",
     'logo_name': True, 'show_powered_by': False, 'page_width': "1024px"}
 html_static_path = ['_static']
-html_sidebars = {"**": ["about.html", "localtoc.html"]}
+html_sidebars = {"**": ["about.html", "localtoc.html", "versioning.html"]}
 
 # -- Options for HTMLHelp output ---------------------------------------------
 # Output file base name for HTML help builder.

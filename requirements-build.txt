@@ -3,3 +3,4 @@ nbstripout
 sphinx
 sphinxcontrib-bibtex
 sphinx-copybutton
+git+https://github.com/J-RN/sphinx-multiversion.git#egg=sphinx-multiversion
