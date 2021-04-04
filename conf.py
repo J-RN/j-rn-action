@@ -94,6 +94,16 @@ man_pages = [(master_doc, title, title, [author], 1)]
 texinfo_documents = [
     (master_doc, title, title, " and ".join(_auths), title, description, 'Miscellaneous')]
 
+# -- Options for Epub output -------------------------------------------------
+# Bibliographic Dublin Core info.
+epub_title = title
+
+# A unique identification for the text.
+epub_uid = doi
+
+# A list of files that should not be packed into the epub file.
+epub_exclude_files = ['search.html']
+
 # -- Extension configuration -------------------------------------------------
 nbsphinx_execute_arguments = [
     "--InlineBackend.figure_formats={'svg', 'pdf'}", "--InlineBackend.rc={'figure.dpi': 96}"]

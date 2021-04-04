@@ -24,6 +24,7 @@ sphinx-multiversion . _build/html
 # update local branch
 pushd _build/html
 sed "s/{{ latest }}/$(git -C ../.. branch --show-current)/" "${GITHUB_ACTION_PATH}"/_templates/redirect.html >index.html
+echo ".doctrees/" >>.gitignore
 git add --all
 git commit -m "update static site" --author='J-RN[bot] <80856664+j-rn-bot@users.noreply.github.com>' || :
 git push -u local_repo "${DEPLOY_BRANCH}":"${DEPLOY_BRANCH}"
