@@ -1,3 +1,6 @@
+.highlight-active, .prompt .highlight:hover {
+  background-color: yellow !important;
+}
 .input_area {
   display: block;
   overflow: hidden;

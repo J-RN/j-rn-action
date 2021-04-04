@@ -79,6 +79,7 @@ texinfo_documents = [
     (master_doc, title, title, " and ".join(_auths), title, description, 'Miscellaneous')]
 
 # -- Extension configuration -------------------------------------------------
+nbsphinx_input_prompt = '🔍[%s]:'
 nbsphinx_execute_arguments = [
     "--InlineBackend.figure_formats={'svg', 'pdf'}", "--InlineBackend.rc={'figure.dpi': 96}"]
 mathjax_config = {'TeX': {'equationNumbers': {'autoNumber': 'AMS', 'useLabelIds': True}}}

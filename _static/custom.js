@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function(){
     var prompt = coll[i].children[0].children[0].children[0];
     coll[i].children[1].style.display = "none";
     prompt.addEventListener("click", function() {
-      //this.classList.toggle("active");
+      this.parentElement.classList.toggle("highlight-active");
       var input_area = this.parentElement.parentElement.nextElementSibling;
       if (input_area.style.display === "block") {
         input_area.style.display = "none";
