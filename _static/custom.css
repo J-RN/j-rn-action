@@ -1,10 +1,30 @@
-.highlight-active, .prompt .highlight:hover {
+.version-banner {
+  background-color: #ffffaa;
+}
+
+.highlight-active, .prompt:hover .highlight {
   background-color: yellow !important;
 }
 .input_area {
   display: block;
   overflow: hidden;
 }
-.version-banner {
-  background-color: #ffffaa;
+
+.prompt .highlight .tooltip-text {
+  visibility: hidden;
+  color: black;
+  background-color: #ffaa88 !important;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+
+  /* top centre */
+  position: absolute;
+  z-index: 1;
+  bottom: 100%;
+  width: 120px;
+  margin-left: -60px;
+}
+.prompt:hover .highlight .tooltip-text {
+  visibility: visible;
 }
