@@ -1,3 +1,5 @@
 nbsphinx
 nbstripout
 sphinx
+sphinxcontrib-bibtex
+sphinx-copybutton

@@ -6,7 +6,6 @@ git ls-files -z '*.ipynb' | xargs -0 "${PYTHON}" -m nbstripout --keep-count --ke
 
 # create temporary gh-pages repo
 mkdir -p _build/html
-mkdir -p _static
 pushd _build/html
 git init -b "${DEPLOY_BRANCH}"
 git remote add local_repo "file://${GITHUB_WORKSPACE}/.git"
@@ -15,6 +14,7 @@ git ls-files -z | xargs -0 git rm -rf || :
 popd
 
 # build static site
+cp -R "${GITHUB_ACTION_PATH}"/_static/ . || :
 cp "${GITHUB_ACTION_PATH}"/conf.py . || :
 cp "${GITHUB_ACTION_PATH}"/Makefile . || :
 cp "${GITHUB_ACTION_PATH}"/logo.svg _static/ || :
