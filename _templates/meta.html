@@ -3,8 +3,10 @@
   <p>The J-RN</p>
 </a>
 
-<a href="."><h2>{{ title }}</h2></a>
-<p class="blurb">{{ description }}</p>
+<a href=".">
+  <h2>{{ title }}</h2>
+  <p class="blurb">{{ description }}</p>
+</a>
 
 {% if doi %}
 <a href="https://dx.doi.org/{{ doi }}"><img src="https://img.shields.io/badge/DOI-{{ doi }}-eeeeee" /></a>

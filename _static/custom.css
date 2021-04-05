@@ -29,31 +29,45 @@
   visibility: visible;
 }
 
-img.badge {
-  width: 14px;
-  height: 14px;
-}
-div.sphinxsidebar h3 {
-  font-size: 16px;
-  line-height: 0;
-  font-weight: bold;
-  font-style: italic;
-  padding-top: 12px;
-}
-
-.logo {
-  border-bottom: 0 !important;
-  text-align: center;
+div.sphinxsidebar {
   line-height: 1;
 }
-.logo img {
+div.sphinxsidebar .logo {
+  border-bottom: 0 !important;
+  text-align: center;
+}
+div.sphinxsidebar .logo img {
   width: 100px;
   display: block;
   margin-left: auto;
   margin-right: auto;
 }
+div.sphinxsidebar img.badge {
+  width: 14px;
+  height: 14px;
+}
+div.sphinxsidebar span.tag {
+  background-color: #eee;
+  border-radius: 4px;
+  padding: 1px 0;
+}
+div.sphinxsidebar h2 {
+  font-size: 18px;
+}
+div.sphinxsidebar h2, h3 {
+  font-weight: bold;
+}
+div.sphinxsidebar h3 {
+  font-size: 16px;
+  font-style: italic;
+  padding-top: 12px;
+}
+
 @media screen and (max-width: 875px) {
   div.sphinxsidebar {
-      background: #555;
+    background: #555;
+  }
+  div.sphinxsidebar span.tag {
+    color: #555;
   }
 }

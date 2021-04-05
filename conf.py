@@ -2,26 +2,31 @@
 # For a full list of options see http://www.sphinx-doc.org/en/master/config
 
 # -- Path setup --------------------------------------------------------------
+import functools
 import os
 import sys
 
 sys.path.insert(0, os.path.abspath('.'))
 
 # -- Project information -----------------------------------------------------
-from meta import release, version # NOQA: E402, F401; isort:skip
-from meta import (                # NOQA: E402; isort: skip
-    authors, copyright_code, copyright_text, description, keywords, title, year)
-try:
-    from meta import editors
-except ImportError:
-    editors = []
-try:
-    from meta import doi
-except ImportError:
-    doi = ''
+import meta   # NOQA: E402; isort:skip
+
+getmeta = functools.partial(getattr, meta)
+release = getmeta('release') # NOQA: F401
+version = getmeta('version') # NOQA: F401
+authors = getmeta('authors')
+copyright_code = getmeta('copyright_code')
+copyright_text = getmeta('copyright_text')
+description = getmeta('description')
+keywords = getmeta('keywords')
+title = getmeta('title')
+year = getmeta('year')
+
+# optional
+editors = getmeta('editors', [])
+doi = getmeta('doi', '')
 
 project = "The J-RN"
-
 _auths = ["{lastname}, {forenames}".format(**i) for i in authors]
 _auths_links = [
     j if 'orcid' not in i else '<a href="https://orcid.org/{orcid}">{j}</a>'.format(j=j, **i)
