@@ -28,7 +28,7 @@ jobs:
     steps:
     - uses: actions/setup-python@v2
     - uses: actions/checkout@v2
-    - uses: J-RN/j-rn-action
+    - uses: J-RN/j-rn-action@v1
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
 ```
