@@ -1,5 +1,5 @@
-.PHONY: check build deploy comment
-default: check build
+.PHONY: check build push deploy comment
+default: check build push
 PIP=${PYTHON} -m pip
 FLAKE8=${PYTHON} -m flake8
 requirements-%:
@@ -13,12 +13,14 @@ build:
 	$(MAKE) -f "${GITHUB_ACTION_PATH}/action.Makefile" requirements-$@
 	"${GITHUB_ACTION_PATH}/build.sh"
 
-deploy: check build conf.py meta.py index.ipynb
+push:
 	git push -u origin "${DEPLOY_BRANCH}":"${DEPLOY_BRANCH}"
+
+deploy: check build push conf.py meta.py index.ipynb
 	git checkout "${DEPLOY_BRANCH}" -- '*.ipynb'
 	git add -u || :
-	git commit -m "render notebooks" || :
+	git commit -m "render notebooks" && echo TODO retag || :
 	git push || echo "WARN: git push origin -- *.ipynb failed" >&2
 
 comment:
-	$(MAKE) -f "${GITHUB_ACTION_PATH}/action.Makefile" requirements-$@
+	echo TODO

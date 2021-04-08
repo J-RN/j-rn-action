@@ -4,7 +4,7 @@ inputs:
     description: Token with write access to this repo
     required: true
   task:
-    description: Task(s) to perform (auto/check/build/deploy/comment)
+    description: Task(s) to perform (auto/check/build/push/deploy/comment)
     required: false
     default: auto
   deploy-branch:
@@ -29,7 +29,7 @@ runs:
         if [[ "$GITHUB_REF" == "refs/tags"* ]]; then
           export TASK="${TASK//auto/deploy}"
         else
-          export TASK="${TASK//auto/check build}"
+          export TASK="${TASK//auto/check build push}"
         fi
       elif [[ $GITHUB_EVENT_NAME == *_comment ]]; then
         export TASK="${TASK//auto/comment}"
