@@ -47,6 +47,9 @@ div.sphinxsidebar .author {
   display: inline-block;
   border-bottom: 1px dotted black;
 }
+div.sphinxsidebar .author .author-meta .name {
+  font-style: italic;
+}
 div.sphinxsidebar .author .author-meta {
   visibility: hidden;
   color: black;
