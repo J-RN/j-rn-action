@@ -1,4 +1,5 @@
 docutils<=0.16
+j-rn>=0.2.0
 nbsphinx
 nbstripout
 sphinx

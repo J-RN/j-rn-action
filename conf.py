@@ -6,6 +6,8 @@ import functools
 import os
 import sys
 
+import jrn
+
 sys.path.insert(0, os.path.abspath('.'))
 
 # -- Project information -----------------------------------------------------
@@ -17,14 +19,17 @@ version = getmeta('version') # NOQA: F401
 authors = getmeta('authors')
 copyright_code = getmeta('copyright_code')
 copyright_text = getmeta('copyright_text')
-description = getmeta('description')
 keywords = getmeta('keywords')
-title = getmeta('title')
 year = getmeta('year')
 
 # optional
+description = getmeta('description', '')
 editors = getmeta('editors', [])
 doi = getmeta('doi', '')
+
+# extract meta info from nb contents
+nbmeta = jrn.nbmeta('index.ipynb')
+title = nbmeta['title']
 
 project = "The J-RN"
 _auths = ["{lastname}, {forenames}".format(**i) for i in authors]
