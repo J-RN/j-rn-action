@@ -2,10 +2,10 @@
 <h3>{{ _('Versions') }}</h3>
 <ul>
   {%- for item in versions.releases %}
-  <li><a href="{{ item.url }}">{{ item.name }}</a></li>
+  <li><a href="{{ item.url | replace('index.html', '') }}">{{ item.name }}</a></li>
   {%- endfor %}
   {%- for item in versions.in_development %}
-  <li><a href="{{ item.url }}">{{ item.name }}</a></li>
+  <li><a href="{{ item.url | replace('index.html', '') }}">{{ item.name }}</a></li>
   {%- endfor %}
 </ul>
 {% endif %}
