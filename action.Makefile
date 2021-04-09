@@ -19,6 +19,8 @@ push:
 deploy: check build push conf.py meta.py index.ipynb
 	git checkout "${DEPLOY_BRANCH}" -- '*.ipynb'
 	git add -u || :
+	git config --local user.name "J-RN[bot]"
+	git config --local user.email "80856664+j-rn-bot@users.noreply.github.com"
 	git commit -m "render notebooks" && echo TODO retag || :
 	git push || echo "WARN: git push origin -- *.ipynb failed" >&2
 

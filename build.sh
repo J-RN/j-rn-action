@@ -28,6 +28,8 @@ pushd _build/html
 sed "s/{{ latest }}/$(git -C ../.. branch --show-current)/" "${GITHUB_ACTION_PATH}"/_templates/redirect.html >index.html
 echo ".doctrees/" >>.gitignore
 git add --all
-git commit -m "update static site" --author='J-RN[bot] <80856664+j-rn-bot@users.noreply.github.com>' || :
+git config --local user.name "${GIT_AUTHOR_NAME:-J-RN[bot]}"
+git config --local user.email "${GIT_AUTHOR_EMAIL:-80856664+j-rn-bot@users.noreply.github.com}"
+git commit -m "update static site" || :
 git push -u local_repo "${DEPLOY_BRANCH}":"${DEPLOY_BRANCH}"
 popd
