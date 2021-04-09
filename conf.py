@@ -28,7 +28,7 @@ editors = getmeta('editors', [])
 doi = getmeta('doi', '')
 
 # extract meta info from nb contents
-nbmeta = jrn.nbmeta('index.ipynb')
+nbmeta = jrn.nbmeta(f"{os.path.abspath('.')}/index.ipynb")
 title = nbmeta['title']
 
 project = "The J-RN"

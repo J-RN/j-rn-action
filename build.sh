@@ -31,6 +31,6 @@ touch .nojekyll
 git add --all
 git config --local user.name "${GIT_AUTHOR_NAME:-J-RN[bot]}"
 git config --local user.email "${GIT_AUTHOR_EMAIL:-80856664+j-rn-bot@users.noreply.github.com}"
-git commit -m "update static site" || :
+git commit -m "update static site" --no-gpg-sign || :
 git push -u local_repo "${DEPLOY_BRANCH}":"${DEPLOY_BRANCH}"
 popd
