@@ -28,16 +28,27 @@
 <ul>
 {%- for author in authors %}
   <li>
-    {{ author.lastname }}, {{ author.forenames }}
-    {%- if author.orcid %}
-    <a href="https://orcid.org/{{ author.orcid }}"><img class="lazy badge" data-src="https://unpkg.com/simple-icons@v4/icons/orcid.svg"/></a>
-    {%- endif %}
-    {%- if author.github %}
-    <a href="https://github.com/{{ author.github }}"><img class="lazy badge" data-src="https://unpkg.com/simple-icons@v4/icons/github.svg"/></a>
-    {%- endif %}
-    {%- if author.email %}
-    <a href="mailto:{{ author.email }}">&#128231;</a>
-    {%- endif %}
+    <div class="author">
+      {{ author.lastname }}, {{ author.forenames }}
+      <span class="author-meta">
+        <div>{{ author.lastname }}, {{ author.forenames }}</div>
+        {%- if author.affiliation %}
+        <div>{{ author.affiliation }}</div>
+        {%- endif %}
+        {%- if author.email %}
+        <a href="mailto:{{ author.email }}"><img class="lazy" data-src="https://img.shields.io/badge/-email-eeeeee?style=social&logo=Mail.Ru"/></a>
+        {%- endif %}
+        {%- if author.orcid %}
+        <a href="https://orcid.org/{{ author.orcid }}"><img class="lazy" data-src="https://img.shields.io/badge/-ORCID-eeeeee?style=social&logo=ORCID"/></a>
+        {%- endif %}
+        {%- if author.googlescholar %}
+        <a href="https://scholar.google.co.uk/citations?user={{ author.googlescholar }}"><img class="lazy" data-src="https://img.shields.io/badge/-Google_Scholar-eeeeee?style=social&logo=Google%20Scholar"/></a>
+        {%- endif %}
+        {%- if author.github %}
+        <a href="https://github.com/{{ author.github }}"><img class="lazy" data-src="https://img.shields.io/badge/-GitHub-eeeeee?style=social&logo=GitHub"/></a>
+        {%- endif %}
+      </span>
+    </div>
   </li>
 {%- endfor %}
 </ul>
@@ -51,7 +62,7 @@
   <li>
     {{ author.lastname }}, {{ author.forenames }}
     {%- if author.github %}
-    <a href="https://github.com/{{ author.github }}"><img class="lazy badge" data-src="https://unpkg.com/simple-icons@v4/icons/github.svg"/></a>
+    <a href="https://github.com/{{ author.github }}"><img class="lazy" data-src="https://img.shields.io/badge/-GitHub-eeeeee?style=social&logo=GitHub"/></a>
     {%- endif %}
   </li>
 {%- endfor %}

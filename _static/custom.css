@@ -18,7 +18,7 @@
   padding: 5px 0;
   border-radius: 6px;
 
-  /* top centre */
+  /* right */
   position: absolute;
   z-index: 1;
   width: 120px;
@@ -42,9 +42,28 @@ div.sphinxsidebar .logo img {
   margin-left: auto;
   margin-right: auto;
 }
-div.sphinxsidebar img.badge {
-  width: 14px;
-  height: 14px;
+div.sphinxsidebar .author {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+div.sphinxsidebar .author .author-meta {
+  visibility: hidden;
+  color: black;
+  background-color: #eee !important;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+
+  /* right */
+  position: absolute;
+  z-index: 1;
+  width: 220px;
+  top: -100%;
+  left: 100%;
+}
+div.sphinxsidebar .author:hover .author-meta, div.sphinxsidebar .author-meta:hover {
+  visibility: visible;
 }
 div.sphinxsidebar span.tag {
   background-color: #eee;
