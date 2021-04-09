@@ -14,7 +14,7 @@ build:
 	"${GITHUB_ACTION_PATH}/build.sh"
 
 push:
-	git push -u origin "${DEPLOY_BRANCH}":"${DEPLOY_BRANCH}"
+	git push -u origin -f "${DEPLOY_BRANCH}":"${DEPLOY_BRANCH}"
 
 deploy: check build push conf.py meta.py index.ipynb
 	git checkout "${DEPLOY_BRANCH}" -- '*.ipynb'
