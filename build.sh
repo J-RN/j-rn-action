@@ -20,6 +20,7 @@ cp "${GITHUB_ACTION_PATH}"/conf.py . || :
 # cp "${GITHUB_ACTION_PATH}"/Makefile . || :
 # make html
 # sphinx-build . _build/html
+which pandoc || sudo apt-get install pandoc -yqq || echo "WARN: could not install pandoc"
 sphinx-multiversion . _build/html
 
 # update local branch
