@@ -15,6 +15,7 @@ popd
 
 # build static site
 cp -R "${GITHUB_ACTION_PATH}"/_static/ . || :
+cp -R "${GITHUB_ACTION_PATH}"/_templates/ . || :
 cp "${GITHUB_ACTION_PATH}"/conf.py . || :
 # cp "${GITHUB_ACTION_PATH}"/Makefile . || :
 # make html
