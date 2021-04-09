@@ -27,15 +27,15 @@ document.addEventListener("DOMContentLoaded", function(){
 
 document.addEventListener("DOMContentLoaded", function(){
   var input_cells = document.getElementsByClassName("nbinput");
-  input_cells.forEach(function(cell){
-    var highlight = cell.children[0].children[0];
+  for (var i = 0; i < input_cells.length; i++){
+    var highlight = input_cells[i].children[0].children[0];
     highlight.children[0].children[0].innerHTML = "🔍";
     let tooltip = document.createElement('span');
     tooltip.textContent = "Toggle source";
     tooltip.classList.toggle("tooltip-text");
     highlight.appendChild(tooltip);
 
-    cell.children[1].style.display = "none";
+    input_cells[i].children[1].style.display = "none";
     highlight.addEventListener("click", function(){
       this.classList.toggle("highlight-active");
       var input_area = this.parentElement.nextElementSibling;
@@ -47,5 +47,5 @@ document.addEventListener("DOMContentLoaded", function(){
         this.children[0].children[0].innerHTML = "🚩";
       }
     });
-  });
+  }
 });
