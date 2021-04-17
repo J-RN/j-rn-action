@@ -118,5 +118,15 @@ epub_exclude_files = ['search.html']
 # -- Extension configuration -------------------------------------------------
 nbsphinx_execute_arguments = [
     "--InlineBackend.figure_formats={'svg', 'pdf'}", "--InlineBackend.rc={'figure.dpi': 96}"]
+nbsphinx_epilog = f"""
+.. raw:: html
+
+    <script src="https://utteranc.es/client.js"
+     repo="{os.getenv('GITHUB_REPOSITORY')}"
+     issue-term="Public Discussion"
+     theme="github-light"
+     crossorigin="anonymous"
+     async></script>
+"""
 mathjax_config = {'TeX': {'equationNumbers': {'autoNumber': 'AMS', 'useLabelIds': True}}}
 bibtex_bibfiles = ['references.bib']
