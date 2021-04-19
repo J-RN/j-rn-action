@@ -119,6 +119,11 @@ epub_exclude_files = ['search.html']
 nbsphinx_execute_arguments = [
     "--InlineBackend.figure_formats={'svg', 'pdf'}", "--InlineBackend.rc={'figure.dpi': 96}"]
 nbsphinx_epilog = f"""
+References
+==========
+
+.. bibliography:: references.bib
+
 .. raw:: html
 
     <script src="https://utteranc.es/client.js"
