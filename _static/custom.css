@@ -2,6 +2,7 @@
   background-color: #ffffaa;
 }
 
+/* nbinput toggle hidden */
 .highlight-active, .prompt:hover .highlight {
   background-color: yellow !important;
 }
@@ -28,7 +29,12 @@
 .prompt:hover .highlight .tooltip-text {
   visibility: visible;
 }
+/* remove nboutput number */
+.nboutput .prompt .highlight {
+  visibility: hidden;
+}
 
+/* nav */
 div.sphinxsidebar {
   line-height: 1;
 }
