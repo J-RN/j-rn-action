@@ -1,3 +1,4 @@
+// img.lazy data-src => src
 document.addEventListener("DOMContentLoaded", function(){
   var lazyloadImages = document.querySelectorAll("img.lazy");
   var lazyloadThrottleTimeout;
@@ -25,6 +26,7 @@ document.addEventListener("DOMContentLoaded", function(){
   window.addEventListener("orientationChange", lazyload);
 });
 
+// nbinput: collapse & toggle tooltip
 document.addEventListener("DOMContentLoaded", function(){
   var input_cells = document.getElementsByClassName("nbinput");
   for (var i = 0; i < input_cells.length; i++){

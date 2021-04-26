@@ -29,7 +29,9 @@
 {%- for author in authors %}
   <li>
     <div class="author">
+      {%- if author.primary or author == authors[0] %}<i>{%- endif %}
       {{ author.lastname }}, {{ author.forenames }}
+      {%- if author.primary or author == authors[0] %}</i>{%- endif %}
       <span class="author-meta">
         <div class="name">{{ author.lastname }}, {{ author.forenames }}</div>
         {%- if author.affiliation %}
