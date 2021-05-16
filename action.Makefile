@@ -26,4 +26,4 @@ deploy: check build push conf.py meta.py index.ipynb
 	git push || echo "WARN: git push origin -- *.ipynb failed" >&2
 
 comment:
-	echo TODO
+	"${GITHUB_ACTION_PATH}/comment.sh"
