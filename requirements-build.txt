@@ -5,3 +5,4 @@ sphinx
 sphinxcontrib-bibtex>=2
 sphinx-copybutton
 git+https://github.com/J-RN/sphinx-multiversion.git#egg=sphinx-multiversion
+tornado>=6.3.2 # not directly required, pinned by Snyk to avoid a vulnerability
