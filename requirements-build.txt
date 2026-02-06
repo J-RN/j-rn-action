@@ -5,3 +5,5 @@ sphinx
 sphinxcontrib-bibtex>=2
 sphinx-copybutton
 git+https://github.com/J-RN/sphinx-multiversion.git#egg=sphinx-multiversion
+nbconvert>=7.17.0 # not directly required, pinned by Snyk to avoid a vulnerability
+zipp>=3.19.1 # not directly required, pinned by Snyk to avoid a vulnerability
